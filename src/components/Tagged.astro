@@ -1,0 +1,9 @@
+---
+Astro.cache.set({ tags: ["component-tag"] });
+
+/** E.g. after loading content. */
+await new Promise((resolve) => setTimeout(resolve, 10));
+Astro.cache.set({ tags: ["component-tag-after-await"] });
+---
+
+<p>component</p>

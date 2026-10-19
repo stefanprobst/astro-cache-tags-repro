@@ -1,0 +1,14 @@
+---
+/** Documented: "Middleware, layouts, content loaders, and page code can each contribute cache directives". */
+Astro.cache.set({ tags: ["layout-tag"] });
+
+/** E.g. after loading content. */
+await new Promise((resolve) => setTimeout(resolve, 10));
+Astro.cache.set({ tags: ["layout-tag-after-await"] });
+---
+
+<html>
+	<body>
+		<slot />
+	</body>
+</html>

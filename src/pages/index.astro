@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Tagged from "../components/Tagged.astro";
+
+Astro.cache.set({ maxAge: 3600, tags: ["page-tag"] });
+
+await new Promise((resolve) => setTimeout(resolve, 10));
+Astro.cache.set({ tags: ["page-tag-after-await"] });
+---
+
+<Layout>
+	<p id="rendered-at">{Date.now()}</p>
+	<Tagged />
+</Layout>
